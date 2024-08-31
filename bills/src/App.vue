@@ -24,11 +24,13 @@
 import { defineComponent } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import UserList from './components/UserList.vue';
+import UserById from './components/UserById.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     UserList,
+    UserById,
   },
 });
 </script>

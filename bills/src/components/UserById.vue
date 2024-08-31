@@ -12,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 interface User {
   id: number;
@@ -24,12 +25,14 @@ export default defineComponent({
   name: 'UserList',
   setup() {
     const users = ref<User[]>([]);
+    const route = useRoute();
 
     onMounted(async () => {
       try {
-        const response = await fetch('http://localhost:8080/user');
+        const id = route.params.id;
+        const response = await fetch(`http://localhost:8080/user/${id}`);
         const data = await response.json();
-        users.value = data;
+        users.value = [data];
       } catch (error) {
         console.error('Ошибка при получении списка пользователей:', error);
       }
@@ -40,6 +43,7 @@ export default defineComponent({
     };
   },
 });
+
 </script>
 
 <style scoped>

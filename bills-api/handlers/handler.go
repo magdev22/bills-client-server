@@ -98,8 +98,9 @@ func (h *UserHandler) GetUserById(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
 		return
 	}
-
+	c.Header("Access-Control-Allow-Origin", "http://localhost:5173")
 	c.JSON(http.StatusOK, user)
+
 }
 
 func (h *UserHandler) CreateUser(c *gin.Context) {
