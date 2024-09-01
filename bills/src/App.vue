@@ -1,14 +1,15 @@
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt=" logo" class="logo" src="" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/user">Список юзеров</RouterLink>
+        <RouterLink to="/user/:id">Детали юзера</RouterLink>
       </nav>
     </div>
   </header>
@@ -25,12 +26,12 @@ import { defineComponent } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import UserList from './components/UserList.vue';
 import UserById from './components/UserById.vue';
+import TheWelcome from './components/TheWelcome.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    UserList,
-    UserById,
+    TheWelcome
   },
 });
 </script>
